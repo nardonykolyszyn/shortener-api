@@ -60,3 +60,5 @@ gem "request_id", "~> 0.4.3"
 gem "faraday", "~> 0.15.4"
 
 gem "faraday_middleware", "~> 0.13.1"
+
+gem "rebrandly", "~> 0.1.5"
