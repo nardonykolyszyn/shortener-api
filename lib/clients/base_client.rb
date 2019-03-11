@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'faraday/request_id'
-class BaseRESTClient
+
+class BaseClient
   def service_url
     raise NotImplementedError
   end
@@ -9,7 +10,7 @@ class BaseRESTClient
   private
 
   def connection
-    @connection ||= Faraday.new(service_url) do |builder|
+    @connection ||= Faraday.new("https://api.rebrandly.com/v1/links?apikey=2e93bb9a25fe40ee8f83c989a85ef1a5") do |builder|
       builder.request :json
       builder.response :raise_error
       builder.response :json, content_type: /\bjson$/

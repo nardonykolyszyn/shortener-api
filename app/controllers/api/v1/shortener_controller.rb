@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'clients/bitly_client'
+require 'clients/shortener_client'
 
 module Api
   module V1
