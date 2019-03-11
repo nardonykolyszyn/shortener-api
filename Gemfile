@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
   gem 'pry-rails'
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 end
 
 group :development do
