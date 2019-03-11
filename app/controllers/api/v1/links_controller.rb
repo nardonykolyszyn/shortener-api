@@ -4,12 +4,18 @@ module Api
   module V1
     class LinksController < ApplicationController
       skip_before_action :verify_authenticity_token
+
+      def index
+        @links = Link.all.limit(100)
+        render json: { links: @links, status: :ok }
+      end
       
       def shorten
         long_url = params[:long_url]
         if long_url.present?
-          response = connection.shorten(long_url)
-          response = { response: response, status: :ok }
+          json_response = connection.shorten(long_url)
+          Link.new(response: json_response).save
+          response = { response: json_response, status: :ok }
         else
           response = { response: 'missing long_url param', status: :unprocessable_entity }
         end
