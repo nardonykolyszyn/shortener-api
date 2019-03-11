@@ -11,6 +11,10 @@ module ShortenerAPI
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    Rebrandly.configure do |config|
+      config.api_key = ENV.fetch('API_KEY')
+    end
+
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
   end
